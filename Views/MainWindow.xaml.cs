@@ -17,6 +17,8 @@ using System.Text.Json;
 using OpenAI.Chat;
 using System.IO;
 using Course_Pilot.Views;
+using Course_Pilot.Models;
+using Course_Pilot.Services;
 
 
 namespace Course_Pilot

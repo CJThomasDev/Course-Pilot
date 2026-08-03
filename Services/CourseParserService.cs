@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using System.Text.Json;
 using Course_Pilot.Models;
 
-namespace Course_Pilot
+namespace Course_Pilot.Services
 {
     public static class CourseParserService
     {

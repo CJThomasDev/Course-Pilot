@@ -8,7 +8,7 @@ using System.Text.Json;
 using System.Threading.Tasks;
 using System.Windows;
 
-namespace Course_Pilot
+namespace Course_Pilot.Services
 {
     class OpenAIService
     {

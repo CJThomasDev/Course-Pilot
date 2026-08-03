@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using System.IO;
 using System.Text.Json;
 using System.Windows.Documents;
+using Course_Pilot.Models;
 
-namespace Course_Pilot
+namespace Course_Pilot.Services
 {
     public static class CourseStorage
     {

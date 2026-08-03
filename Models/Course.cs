@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Course_Pilot.Models;
 
-namespace Course_Pilot
+namespace Course_Pilot.Models
 {
     public class Course
     {

@@ -2,7 +2,7 @@
 using System.Text;
 using UglyToad.PdfPig;
 
-namespace Course_Pilot
+namespace Course_Pilot.Services
 {
     public static class PdfService
     {
