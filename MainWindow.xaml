@@ -1,0 +1,261 @@
+﻿<Window x:Class="Course_Pilot.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Course_Pilot"
+        mc:Ignorable="d"
+        WindowState="Maximized"
+        Title="Course Pilot" Height="876" Width="1516">
+    <Grid>
+        <!--Grid Definitions -->
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="200"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="350"/>
+        </Grid.ColumnDefinitions>
+
+
+        <!--Heading stack panel-->
+        <StackPanel Grid.Column="0" Grid.Row="0">
+            <Label
+                FontSize="35"
+                FontFamily="Segoe UI Semibold">
+                Course Pilot
+            </Label>
+            <Label
+                FontSize="15"
+                FontFamily="Segoe UI">
+                Your semester, organized.
+            </Label>
+
+        </StackPanel>
+
+        <!--Upload syllabus button-->
+        <Button 
+            Grid.Column="0" 
+            Grid.Row="1"
+            Height="50"
+            Width="150"
+            VerticalAlignment="Center"
+            HorizontalAlignment="Left"
+            FontSize="15"
+            FontFamily="Segoe UI"
+            Click="Button_Click"
+            Margin="10,0,0,0"
+            Cursor="Hand">
+            Upload Syllabus .pdf
+        </Button>
+
+
+        <!--Stack panel for classes-->
+        <StackPanel 
+        Grid.Column="0" 
+        Grid.Row="2">
+
+            <Label
+                FontSize="30"
+                FontFamily="Segoe UI">
+                My Classes
+            </Label>
+
+        </StackPanel>
+
+        <!--Text block for user information-->
+        <TextBlock
+            Grid.Column="1" 
+            Grid.Row="0"
+            TextWrapping="Wrap"
+            FontSize="20"
+            FontFamily="Segoe UI Semibold"
+            HorizontalAlignment="Center"
+            TextAlignment="Center">
+            Welcome to Course Pilot. Upload your course syllabus and let AI
+            organize everything automatically.
+        </TextBlock>
+
+        <!--Stack Panel for extra user information-->
+        <StackPanel
+            Grid.Column="1"
+            Grid.Row="1"
+            HorizontalAlignment="Center">
+            <TextBlock
+                FontSize="17"
+                TextWrapping="Wrap">
+                ✔Extracts course details automatically
+            </TextBlock>
+            <TextBlock
+                FontSize="17"
+                TextWrapping="Wrap">
+                ✔Finds your professor and meeting schedule
+            </TextBlock>
+            <TextBlock
+                FontSize="17"
+                TextWrapping="Wrap">
+                ✔Organizes all of your classes in one place
+            </TextBlock>
+            <TextBlock
+                FontSize="17"
+                TextWrapping="Wrap">
+                ✔Ask questions about any uploaded syllabus
+            </TextBlock>
+
+        </StackPanel>
+
+
+        <!--Class Cards-->
+        <ScrollViewer Grid.Row="3"
+              Grid.Column="0"
+              VerticalScrollBarVisibility="Auto"
+              HorizontalScrollBarVisibility="Disabled"
+              Margin="20,10,20,0">
+
+            <StackPanel x:Name="ClassesPanel"/>
+
+        </ScrollViewer>
+
+        <!--Course Pilot Chat Bot-->
+        <Border Grid.Column="4"
+        Grid.Row="0"
+        Grid.RowSpan="4"
+        Margin="20"
+        Padding="18"
+        Background="#F8F8F8"
+        BorderBrush="LightGray"
+        BorderThickness="1"
+        CornerRadius="10"
+        VerticalAlignment="Stretch">
+
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+
+                <TextBlock Grid.Row="0"
+                   Text="Ask Course Pilot"
+                   FontSize="24"
+                   FontWeight="Bold"
+                   Margin="0,0,0,12"/>
+
+                <StackPanel Grid.Row="1"
+                    Margin="0,0,0,12">
+
+                    <TextBlock Text="Ask about:"
+                        FontSize="14"
+                        FontWeight="SemiBold"
+                        Margin="0,0,0,5"/>
+
+                    <ComboBox x:Name="CourseSelector"
+                        DisplayMemberPath="CourseCode"
+                        Height="35"/>
+
+                </StackPanel>
+
+                <ScrollViewer Grid.Row="2"
+                      VerticalScrollBarVisibility="Auto"
+                      Margin="0,0,0,12">
+                    <TextBlock x:Name="AnswerTextBlock"
+                       Text="Select a course and ask a question."
+                       TextWrapping="Wrap"/>
+                </ScrollViewer>
+
+                <TextBox Grid.Row="3"
+                 x:Name="QuestionTextBox"
+                 Height="70"
+                 TextWrapping="Wrap"
+                 AcceptsReturn="True"
+                 VerticalScrollBarVisibility="Auto"
+                 Margin="0,0,0,10"/>
+
+                <Button Grid.Row="4"
+                x:Name="AskButton"
+                Content="Ask"
+                Height="36"
+                Click="AskButton_Click"/>
+            </Grid>
+
+        </Border>
+
+        <!--NOTICE PANEL-->
+        <Border
+        Grid.Row="3"
+        Grid.Column="1"
+        Margin="30"
+        Padding="25"
+        Background="#FFF7D6"
+        BorderBrush="#D6C77A"
+        BorderThickness="1"
+        CornerRadius="12"
+        HorizontalAlignment="Stretch"
+        VerticalAlignment="Top"
+        Height="400"
+        Width="600">
+
+            <StackPanel>
+                <TextBlock
+                Text="📢 Notice"
+                FontSize="24"
+                FontWeight="SemiBold"
+                HorizontalAlignment="Center"
+                Margin="0,0,0,15"/>
+
+                <TextBlock
+                Text="Course Pilot v1.0"
+                FontSize="18"
+                FontWeight="SemiBold"
+                TextAlignment="Center"
+                Margin="0,0,0,0"/>
+
+                <TextBlock
+                Text="Course Pilot is currently under active development, and new features, improvements, and
+AI-powered tools are already in progress. As development continues, you can expect
+updates that improve usability, add new functionality, and make organizing your semester
+even easier."
+                FontSize="15"
+                TextWrapping="Wrap"
+                TextAlignment="Center"
+                MaxWidth="600"/>
+
+                <TextBlock
+                Text="Found a bug or have a suggestion?"
+                FontSize="18"
+                FontWeight="SemiBold"
+                TextAlignment="Center"
+                Margin="0,15,0,0"/>
+
+                <TextBlock
+                Text="Please give the developer your feedback. 
+If you encounter any bugs, unexpected behavior,
+or have ideas for new features, please send an email to: cjthomas2838@gmail.com"
+                FontSize="15"
+                TextWrapping="Wrap"
+                TextAlignment="Center"
+                MaxWidth="600"/>
+
+                <TextBlock
+                    Text="Your feedback helps improve Course Pilot and shape future updates.
+Thank you for your support!"
+                    TextWrapping="Wrap"
+                    TextAlignment="Center"
+                    FontSize="18"
+                    FontWeight="SemiBold"
+                    Margin="0,20,0,0"/>
+
+            </StackPanel>
+        </Border>
+
+
+    </Grid>
+</Window>
