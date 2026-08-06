@@ -41,7 +41,7 @@ Course Pilot is an AI-powered desktop application that helps students organize i
 
 - Windows 10/11 (64-bit)
 
--Internet connection
+- Internet connection
 
 ## Security
 
