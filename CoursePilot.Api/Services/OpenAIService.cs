@@ -1,6 +1,6 @@
-﻿using Course_Pilot.Models;
+﻿using CoursePilot.Api.Models;
 using OpenAI.Responses;
- using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,9 +8,9 @@ using System.Text.Json;
 using System.Threading.Tasks;
 using System.Windows;
 
-namespace Course_Pilot.Services
+namespace CoursePilot.Api.Services
 {
-    class OpenAIService
+    public class OpenAIService
     {
 
         public static async Task<string> AskAIAsync(string pdfText)
@@ -166,7 +166,7 @@ namespace Course_Pilot.Services
         }
 
         //supressing ResponsesClient warning
-        #pragma warning disable OPENAI001
+#pragma warning disable OPENAI001
         public static async Task<string> AskWithWebAsync(string question)
         {
             string apiKey =
@@ -203,14 +203,14 @@ namespace Course_Pilot.Services
             }
 
             return "The web search returned no answer.";
-;
+            ;
         }
         //unsupressing ResponsesClient warning
-        #pragma warning restore OPENAI001
+#pragma warning restore OPENAI001
 
 
         //method to generate useful course resources
-        public async Task<CourseResources?> GenerateCourseResourcesAsync(Course course)
+        public static async Task<CourseResources?> GenerateCourseResourcesAsync(Course course)
         {
             string prompt = $$"""
         Search the web for the highest quality study resources for this college course.

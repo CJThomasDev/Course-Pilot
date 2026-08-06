@@ -15,8 +15,8 @@ namespace Course_Pilot.Services
         //organizing course 
          public static async Task<Course> ParseCourseAsync(string pdfText)
         {
-            //ask Gemini for JSON
-            string json = await OpenAIService.AskAIAsync(pdfText);
+            //ask OpenAI for JSON
+            string json = await ApiService.AskAIAsync(pdfText);
 
             //turn JSON into a Course object
             Course? course = JsonSerializer.Deserialize<Course>(json);
@@ -24,7 +24,7 @@ namespace Course_Pilot.Services
             if (course == null)
                 throw new Exception("Failed to parse course.");
 
-            //assign member data SyllabusText with the pdf text
+            //keep the original syllabus text locally for the course chat
             course.SyllabusText = pdfText;
 
             return course;

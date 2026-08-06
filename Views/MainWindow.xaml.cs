@@ -14,7 +14,6 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using UglyToad.PdfPig;
 using System.Text.Json;
-using OpenAI.Chat;
 using System.IO;
 using Course_Pilot.Views;
 using Course_Pilot.Models;
@@ -158,7 +157,7 @@ namespace Course_Pilot
 
             try
             {
-                string answer = await OpenAIService.AskCourseQuestionAsync(
+                string answer = await ApiService.AskCourseQuestionAsync(
                 selectedCourse.SyllabusText,
                 question
                 );

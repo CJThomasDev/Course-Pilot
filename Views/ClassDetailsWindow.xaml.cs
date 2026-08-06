@@ -40,11 +40,11 @@ namespace Course_Pilot.Views
             {
                 GenerateResourcesButton.IsEnabled = false;
                 GenerateResourcesButton.Content = "Generating...";
-                //creating OpenAI service
-                OpenAIService openAIService = new OpenAIService();
+                
+
                 //generate course resources
                 CourseResources? resources =
-                    await openAIService.GenerateCourseResourcesAsync(Course);
+                    await ApiService.GenerateCourseResourcesAsync(Course);
                 //if there were none returned then throw an error
                 if (resources == null)
                 {
