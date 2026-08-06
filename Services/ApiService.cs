@@ -113,6 +113,15 @@ namespace Course_Pilot.Services
         public static async Task<CourseResources?> GenerateCourseResourcesAsync(
             Course course)
         {
+            //nothing null being sent to AI
+            course.OfficeHours ??= "";
+            course.Email ??= "";
+            course.Location ??= "";
+            course.Days ??= "";
+            course.Time ??= "";
+            course.CourseDescription ??= "";
+            course.SyllabusText ??= "";
+
             //create the JSON body expected by the API.
             var request = new
             {
@@ -124,7 +133,14 @@ namespace Course_Pilot.Services
                 await client.PostAsJsonAsync("api/AI/generate-resources", request);
 
             //throw an exception if the server returned an error.
-            response.EnsureSuccessStatusCode();
+            if (!response.IsSuccessStatusCode)
+            {
+                string errorBody = await response.Content.ReadAsStringAsync();
+
+                throw new Exception(
+                    $"Server returned {(int)response.StatusCode} " +
+                    $"{response.StatusCode}:\n{errorBody}");
+            }
 
             //convert the returned JSON into a CourseResources object.
             CourseResources? resources =
