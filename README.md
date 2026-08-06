@@ -29,44 +29,27 @@ Course Pilot is an AI-powered desktop application that helps students organize i
 
 ## Installation
 
-1. Clone the repository.
+1. Download the latest CoursePilotSetup.exe from the Releases page.
 
-```bash
-git clone https://github.com/CJThomasDev/Course-Pilot.git
-```
+2. Run the installer.
 
-2. Open the solution in Visual Studio.
+3. Launch CoursePilot from the Start Menu or Desktop shortcut.
 
-3. Restore the required NuGet packages.
-
-4. Create an OpenAI API key.
-
-5. Create an environment variable named:
-
-```
-OPENAI_API_KEY
-```
-
-6. Set the value of the variable to your OpenAI API key.
-
-7. Build and run the project.
+4.Upload a course syllabus PDF and start organizing your semester.
 
 ## Requirements
 
-- Windows
-- .NET
-- Visual Studio 2022 or newer
-- OpenAI API Key
+- Windows 10/11 (64-bit)
+
+-Internet connection
 
 ## Security
 
-For security reasons, no API keys are included in this repository.
+CoursePilot follows a client-server architecture.
 
-To use the AI features, users must create their own OpenAI API key and store it as an environment variable named:
+The desktop application communicates with a hosted ASP.NET Core API, which securely handles all AI requests. Users never need to configure or expose their own OpenAI API key.
 
-```
-OPENAI_API_KEY
-```
+No API keys or secrets are included in this repository.
 
 ## Planned Features
 
