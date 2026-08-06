@@ -4,17 +4,17 @@ using Course_Pilot.Models;
 
 namespace Course_Pilot.Services
 {
-    //sends requests from the WPF desktop app to the CoursePilot API.
+    //sends requests from the WPF desktop app to the CoursePilot API
     internal static class ApiService
     {
-        //reuse one HttpClient instead of creating a new one for every request.
+        //reuse one HttpClient instead of creating a new one for every request
         private static readonly HttpClient client = new()
         {
-            //this is your API's current local development address.
+            // API's current local development address
             BaseAddress = new Uri("https://localhost:7161/")
         };
 
-        //sends syllabus text to POST /api/AI/ask.
+        //sends syllabus text to POST /api/AI/ask
         public static async Task<string> AskAIAsync(string pdfText)
         {
             //this object becomes:
@@ -26,14 +26,14 @@ namespace Course_Pilot.Services
                 prompt = pdfText
             };
 
-            //send the JSON request to your ASP.NET backend.
+            //send the JSON request to your ASP.NET backend
             HttpResponseMessage response =
                 await client.PostAsJsonAsync("api/AI/ask", request);
 
-            //throw an exception when the server returns an error status.
+            //throw an exception when the server returns an error status
             response.EnsureSuccessStatusCode();
 
-            //convert the server's JSON response into a C# object.
+            //convert the server's JSON response into a C# object
             AskResponse? result =
                 await response.Content.ReadFromJsonAsync<AskResponse>();
 
@@ -46,7 +46,7 @@ namespace Course_Pilot.Services
         }
 
 
-        //sends a course-specific question to the ASP.NET backend.
+        //sends a course-specific question to the ASP.NET backend
         public static async Task<string> AskCourseQuestionAsync(
             string syllabusText,
             string question)

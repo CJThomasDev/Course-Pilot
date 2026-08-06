@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace CoursePilot.Api.Controllers
 {
-    //marks this class as an API controller.
+    //marks this class as an API controller
     [ApiController]
 
     //base route for every endpoint in this controller:
@@ -12,7 +12,7 @@ namespace CoursePilot.Api.Controllers
     [Route("api/[controller]")]
     public class AIController : ControllerBase
     {
-        //parses syllabus text into structured course JSON.
+        //parses syllabus text into structured course JSON
         //POST /api/AI/ask
         [HttpPost("ask")]
         public async Task<IActionResult> Ask([FromBody] AskRequest request)
@@ -45,7 +45,7 @@ namespace CoursePilot.Api.Controllers
             }
         }
 
-        //answers a question using an uploaded course syllabus.
+        //answers a question using an uploaded course syllabus
         //POST /api/AI/course-question
         [HttpPost("course-question")]
         public async Task<IActionResult> AskCourseQuestion(
@@ -89,7 +89,7 @@ namespace CoursePilot.Api.Controllers
             }
         }
 
-        //answers a question using OpenAI's web-search functionality.
+        //answers a question using OpenAI's web-search functionality
         //POST /api/AI/web-question
         [HttpPost("web-question")]
         public async Task<IActionResult> AskWebQuestion(
@@ -123,7 +123,7 @@ namespace CoursePilot.Api.Controllers
             }
         }
 
-        //generates helpful study resources for a course.
+        //generates helpful study resources for a course
         //POST /api/AI/generate-resources
         [HttpPost("generate-resources")]
         public async Task<IActionResult> GenerateResources(
