@@ -9,6 +9,16 @@ builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
 
+//logs
+app.Use(async (context, next) =>
+{
+    Console.WriteLine($"{DateTime.UtcNow:u} {context.Request.Method} {context.Request.Path}");
+
+    await next();
+
+    Console.WriteLine($"{DateTime.UtcNow:u} Response: {context.Response.StatusCode}");
+});
+
 // Configure the HTTP request pipeline.
 app.UseSwagger();
 app.UseSwaggerUI();
