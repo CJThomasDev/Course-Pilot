@@ -35,7 +35,7 @@ Course Pilot is an AI-powered desktop application that helps students organize i
 
 3. Launch CoursePilot from the Start Menu or Desktop shortcut.
 
-4.Upload a course syllabus PDF and start organizing your semester.
+4. Upload a course syllabus PDF and start organizing your semester.
 
 ## Requirements
 
