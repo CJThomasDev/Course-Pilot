@@ -9,23 +9,23 @@ namespace CoursePilot.Api.Models
 {
     public class Course
     {
-        public string CourseCode { get; set; }
+        public string CourseCode { get; set; } = string.Empty;
 
-        public string CourseTitle { get; set; }
+        public string CourseTitle { get; set; } = string.Empty;
 
-        public string CourseDescription { get; set; }
+        public string CourseDescription { get; set; } = string.Empty;
 
-        public string Professor { get; set; }
+        public string Professor { get; set; } = string.Empty;
 
-        public string Email { get; set; }
+        public string Email { get; set; } = string.Empty;
 
-        public string OfficeHours { get; set; }
+        public string OfficeHours { get; set; } = string.Empty;
 
-        public string Days { get; set; }
+        public string Days { get; set; } = string.Empty;
 
-        public string Time { get; set; }
+        public string Time { get; set; } = string.Empty;
 
-        public string Location { get; set; }
+        public string Location { get; set; } = string.Empty;
 
         public List<Exam> Exams { get; set; } = new();
 
