@@ -11,7 +11,7 @@ namespace Course_Pilot.Services
         private static readonly HttpClient client = new()
         {
             // API's current local development address
-            BaseAddress = new Uri("https://localhost:7161/")
+            BaseAddress = new Uri("https://coursepilot-api-ujm9.onrender.com/")
         };
 
         //sends syllabus text to POST /api/AI/ask
